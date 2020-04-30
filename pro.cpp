@@ -474,6 +474,7 @@ void Game(int attempt){
     //string str;
     //int t = 4;
     while(blank && attempt){
+            SetColor(149);
         cout << "\nEnter row, col, and value in x,y,z format : ";
         //cin >> str;
         cin >> row; cin >> ch; cin >> col; cin >> ch; cin >> value;
