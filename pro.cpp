@@ -1,6 +1,3 @@
-
-// APS Lab Project
-
 #include<bits/stdc++.h>
 #include <windows.h>
 #define UNASSIGNED 0
@@ -515,8 +512,10 @@ void delay(int number_of_seconds)
 
 void Rules(){
     delay(1);
+    gotoxy(1,5);
       cout<<"Games would be divided into three parts"<<endl;
       delay(1);
+      gotoxy(7,6);
       cout<<"\t*Easy Level"<<endl;
       delay(1);
       cout<<"\t*Medium Level"<<endl;
@@ -544,24 +543,23 @@ void gotoxy(int x, int y)
 
 
 void intro(){
-    cout<<"\n\t\t%%%%%%%%%       ##       ##  %%%%%%%%%%%  **********     %%%  %%%%    ##       ## ";
-    cout<<"\n\t\t%%              ##       ##    %%     %%  **********     %%%  %%%     ##       ##   ";
-    cout<<"\n\t\t%%%%%%%%%%      ##       ##    %%     %%  **********     %%% %%       ##       ##         ";
-    cout<<"\n\t\t        %%%     ##       ##    %%     %%  **********     %%%   %%%    ##       ##      ";
-    cout<<"\n\t\t%%%%%%%%%%%     ###########  %%%%%%%%%%%  **********     %%%   %%%%   ########### ";
+    cout<<"\n\t\t%%%%%%%%%       ##       ##  %%%%%%%%%%%  ****     %%%  %%%%    ##       ## ";
+    cout<<"\n\t\t%%              ##       ##    %%     %%  ****     %%%  %%%     ##       ##   ";
+    cout<<"\n\t\t%%%%%%%%%%      ##       ##    %%     %%  ****     %%% %%       ##       ##         ";
+    cout<<"\n\t\t        %%%     ##       ##    %%     %%  ****     %%%   %%%    ##       ##      ";
+    cout<<"\n\t\t%%%%%%%%%%%     ###########  %%%%%%%%%%%  ****     %%%   %%%%   ########### ";
     cout<<endl;
     delay(2);
 
-    gotoxy(50,10);
+    gotoxy(20,10);
 
-    cout<<"\n\nEnter N/n to play the game and Q/q to quit : ";
+    cout<<"Enter N/n to play the game and Q/q to quit : ";
     char ch;
     cin>>ch;
 
     if(ch == 'n' || ch == 'N'){
         system("CLS");
         Rules();
-        cout<<endl;
     }
     else if(ch == 'Q' || ch == 'q'){
         _Exit(10);
@@ -608,6 +606,3 @@ int main(int argc, char const *argv[]){
 
     return 0;
 }
-
-
-
