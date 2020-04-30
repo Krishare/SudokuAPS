@@ -558,7 +558,7 @@ void intro(){
     cout<<endl;
     delay(2);
     gotoxy(20,10);
-    cout<<"ALGORITHMIC LAB PROJECT";
+    cout<<"ALGORITHM LAB PROJECT";
     cout<<endl;
     delay(2);
     gotoxy(30,12);
@@ -594,7 +594,7 @@ void chooseLevel(){
 
 void choice(){
     gotoxy(15,14);
-    cout<<"\n\nEnter N/n to continue the game, B/b to go back and Q/q to quit : ";
+    cout<<"\n\tEnter N/n to continue the game, B/b to go back and Q/q to quit : ";
     char ch1;
     cin>>ch1;
 
