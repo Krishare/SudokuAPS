@@ -1,21 +1,11 @@
 
 // APS Lab Project
 
-#include <iostream>
-#include <algorithm>
-#include <ctime>
-#include <cstdlib>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-
+#include<bits/stdc++.h>
 #define UNASSIGNED 0
 #define N 9
 
 using namespace std;
-
-
 
 class Sudoku {
     private:
@@ -51,9 +41,6 @@ void level(char ch);
 void printGrid2(int grid[N][N]);
 
 
-
-
-
 int genRandNum(int maxLimit){
     return rand()%maxLimit;
 }
@@ -71,25 +58,25 @@ void Sudoku::createSeed(){
 
 Sudoku::Sudoku(){
 
-  this->difficultyLevel = 0;
+    this->difficultyLevel = 0;
 
-  for(int i=0;i<81;i++){
-    this->gridPos[i] = i;
-  }
-
-  random_shuffle(this->gridPos, (this->gridPos) + 81, genRandNum);
-
-  for(int i=0;i<9;i++){
-    this->guessNum[i]=i+1;
-  }
-
-  random_shuffle(this->guessNum, (this->guessNum) + 9, genRandNum);
-
-  for(int i=0;i<9;i++){
-    for(int j=0;j<9;j++){
-      this->grid[i][j]=0;
+    for(int i = 0 ; i < 81 ; i++){
+        this->gridPos[i] = i;
     }
-  }
+
+    random_shuffle(this->gridPos, (this->gridPos) + 81, genRandNum);
+
+    for(int i = 0 ;i < 9 ; i++){
+        this->guessNum[i]=i+1;
+    }
+
+    random_shuffle(this->guessNum, (this->guessNum) + 9, genRandNum);
+
+    for(int i = 0 ; i < 9 ; i++){
+        for(int j = 0 ; j < 9; j++){
+            this->grid[i][j]=0;
+        }
+    }
 
 }
 
@@ -109,17 +96,25 @@ void Sudoku::printGrid(){
     }
     */
     for(int i = 0 ; i < 9 ; i++){
+
         for(int j = 0 ; j < 9 ; j++){
+
             game[i][j] = grid[i][j];
 
             if(grid[i][j] == 0){
+
                 blank++;
+
             }
         }
     }
+
     for(int i = 0 ; i < 9 ; i++){
+
         for(int j = 0 ; j < 9 ; j++){
+
             problem[i][j] = grid[i][j];
+
         }
     }
 
@@ -129,8 +124,11 @@ void Sudoku::printGrid(){
 
 
 bool FindUnassignedLocation(int grid[9][9], int &row, int &col){
+
     for (row = 0; row < 9; row++){
+
         for (col = 0; col < 9; col++){
+
             if (grid[row][col] == UNASSIGNED){
                 return true;
             }
@@ -141,9 +139,13 @@ bool FindUnassignedLocation(int grid[9][9], int &row, int &col){
 }
 
 bool UsedInRow(int grid[9][9], int row, int num){
+
     for (int col = 0; col < 9; col++){
+
         if (grid[row][col] == num){
+
             return true;
+
         }
     }
 
@@ -151,72 +153,94 @@ bool UsedInRow(int grid[9][9], int row, int num){
 }
 
 bool UsedInCol(int grid[9][9], int col, int num){
-    for (int row = 0; row < 9; row++){
+    for(int row = 0; row < 9; row++){
+
         if (grid[row][col] == num){
             return true;
         }
+
     }
 
     return false;
 }
 
 bool UsedInBox(int grid[9][9], int boxStartRow, int boxStartCol, int num){
+
     for (int row = 0; row < 3; row++){
+
         for (int col = 0; col < 3; col++){
+
             if (grid[row+boxStartRow][col+boxStartCol] == num){
+
                 return true;
+
             }
+
         }
+
     }
 
     return false;
 }
 
 bool isSafe(int grid[9][9], int row, int col, int num){
+
     return !UsedInRow(grid, row, num) && !UsedInCol(grid, col, num) && !UsedInBox(grid, row - row%3 , col - col%3, num);
+
 }
 
 
 bool Sudoku::solveGrid(){
+
     int row, col;
 
     if (!FindUnassignedLocation(this->grid, row, col)){
+
        return true;
+
     }
 
     for (int num = 0; num < 9; num++){
+
         if (isSafe(this->grid, row, col, this->guessNum[num])){
+
             this->grid[row][col] = this->guessNum[num];
 
             if (solveGrid()){
+
                 return true;
+
             }
 
             this->grid[row][col] = UNASSIGNED;
+
         }
+
     }
 
     return false;
+
 }
 
 
 void Sudoku::countSoln(int &number){
-  int row, col;
+    int row, col;
 
-  if(!FindUnassignedLocation(this->grid, row, col)){
-    number++;
-    return ;
-  }
+    if(!FindUnassignedLocation(this->grid, row, col)){
+        number++;
+        return ;
+    }
 
 
-  for(int i = 0; i < 9 && number < 2; i++){
-      if( isSafe(this->grid, row, col, this->guessNum[i]) ){
-        this->grid[row][col] = this->guessNum[i];
-        countSoln(number);
-      }
+    for(int i = 0; i < 9 && number < 2; i++){
+        if( isSafe(this->grid, row, col, this->guessNum[i]) ){
+            this->grid[row][col] = this->guessNum[i];
+            countSoln(number);
+        }
 
-      this->grid[row][col] = UNASSIGNED;
-  }
+        this->grid[row][col] = UNASSIGNED;
+    }
+
 }
 
 bool FindUnassignedLocation(int grid[N][N], int &row, int &col);
@@ -232,31 +256,47 @@ bool SolveSudoku(int grid[N][N]){
 
 
 	for (int num = 1; num <= 9; num++){
+
 		if (isSafe(grid, row, col, num)){
+
 			grid[row][col] = num;
 
 			if (SolveSudoku(grid)){
+
 				return true;
+
 			}
+
 			grid[row][col] = UNASSIGNED;
+
 		}
 	}
+
 	return false;
+
 }
 
 
 void Sudoku::genPuzzle(){
+
     for(int i = 0 ; i < 81 ; i++){
+
         int x = ( this -> gridPos[i] ) / 9;
+
         int y = ( this -> gridPos[i] ) % 9;
+
         int temp = this -> grid[x][y];
+
         this -> grid[x][y] = UNASSIGNED;
 
         int check=0;
+
         countSoln(check);
 
         if(check != 1){
+
             this -> grid[x][y] = temp;
+
         }
     }
 }
@@ -300,31 +340,38 @@ void Sudoku::printSVG(string path="")
 
 // START: Calculate branch difficulty score
 int Sudoku::branchDifficultyScore(){
+
     int emptyPositions = -1;
+
     int tempGrid[9][9];
+
     int sum=0;
 
     for(int i = 0 ; i < 9 ; i++){
+
         for(int j = 0 ; j < 9 ; j++){
+
             tempGrid[i][j] = this->grid[i][j];
+
         }
+
     }
 
     while(emptyPositions!=0){
         vector<vector<int> > empty;
 
-        for(int i=0;i<81;i++){
-            if(tempGrid[(int)(i/9)][(int)(i%9)] == 0){
+        for(int i = 0 ; i < 81 ; i++){
+            if(tempGrid[(int)(i / 9)][(int)(i % 9)] == 0){
                 vector<int> temp;
                 temp.push_back(i);
 
-            for(int num=1;num<=9;num++){
-                if(isSafe(tempGrid,i/9,i%9,num)){
-                    temp.push_back(num);
+                for(int num=1;num<=9;num++){
+                    if(isSafe(tempGrid,i/9,i%9,num)){
+                        temp.push_back(num);
+                    }
                 }
-            }
 
-            empty.push_back(temp);
+                empty.push_back(temp);
             }
         }
 
@@ -360,6 +407,7 @@ int Sudoku::branchDifficultyScore(){
 
 void Sudoku::calculateDifficulty(){
     int B = branchDifficultyScore();
+
     int emptyCells = 0;
 
     for(int i = 0; i < 9 ; i++){
