@@ -562,7 +562,7 @@ void intro(){
     cout<<endl;
     delay(2);
     gotoxy(30,12);
-    cout<<"Enter N/n to play the game and Q/q to quit : ";
+    cout<<"::Enter N/n to play the game and Q/q to quit : ";
     char ch;
     cin>>ch;
 
