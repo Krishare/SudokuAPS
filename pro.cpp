@@ -603,7 +603,7 @@ void intro(){
     delay(2);
     gotoxy(20,10);
     SetColor(145);
-    cout<<"ALGORITHM LAB PROJECT";
+    cout<<"ALGORITHM LAB PROJECT:";
     cout<<endl;
     delay(2);
     gotoxy(30,12);
