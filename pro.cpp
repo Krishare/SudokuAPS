@@ -2,10 +2,12 @@
 // APS Lab Project
 
 #include<bits/stdc++.h>
+#include <windows.h>
 #define UNASSIGNED 0
 #define N 9
-
+COORD coord= {0,0};
 using namespace std;
+
 
 class Sudoku {
     private:
@@ -531,6 +533,12 @@ void Rules(){
       delay(1);
       choice();
 }
+void gotoxy(int x,int y)
+{
+    coord.X=x;
+    coord.Y=y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
 
 
 void intro(){
@@ -541,6 +549,8 @@ void intro(){
     cout<<"\n\t\t%%%%%%%%%%%     ###########  %%%%%%%%%%%  **********     %%%   %%%%   ########### ";
     cout<<endl;
     delay(2);
+
+    gotoxy(30,10);
 
     cout<<"\n\nEnter N/n to play the game and Q/q to quit : ";
     char ch;
@@ -596,5 +606,6 @@ int main(int argc, char const *argv[]){
 
     return 0;
 }
+
 
 
