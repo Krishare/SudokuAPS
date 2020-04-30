@@ -440,7 +440,7 @@ void SetColor(int ForgC)
 
 void printGrid2(int grid[9][9]){
     for(int i = 0 ; i < 9 ; i++){
-        gotoxy(40, 5 + i);
+            gotoxy(40, 5 + i);
         for(int j = 0 ; j < 9 ; j++){
             if(grid[i][j] == 0)
                 cout<<".";
@@ -491,8 +491,7 @@ void Game(int attempt){
             cout << "Attempt left : " << --attempt;
         }
     }
-
-     if(blank == 0){
+if(blank == 0){
         system("CLS");
         printGrid2(game);
         gotoxy(40,15);
@@ -509,6 +508,7 @@ void Game(int attempt){
         delay(2);
         cout << "Try next time.";
     }
+
 }
 
 void StartGame(){
