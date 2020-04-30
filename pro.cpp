@@ -42,7 +42,7 @@ void Game(int attempt);
 void level(char ch);
 void printGrid2(int grid[N][N]);
 void delay(int t);
-
+void gotoxy(int, int);
 int genRandNum(int maxLimit){
     return rand()%maxLimit;
 }
@@ -533,11 +533,13 @@ void Rules(){
       delay(1);
       choice();
 }
-void gotoxy(int x,int y)
+void gotoxy(int x, int y)
 {
-    coord.X=x;
-    coord.Y=y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	_COORD pos;
+	pos.X = x;
+	pos.Y = y;
+	SetConsoleCursorPosition(hConsole, pos);
 }
 
 
@@ -550,7 +552,7 @@ void intro(){
     cout<<endl;
     delay(2);
 
-    gotoxy(30,10);
+    gotoxy(50,10);
 
     cout<<"\n\nEnter N/n to play the game and Q/q to quit : ";
     char ch;
