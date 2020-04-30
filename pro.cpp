@@ -440,6 +440,7 @@ void SetColor(int ForgC)
 
 void printGrid2(int grid[9][9]){
     for(int i = 0 ; i < 9 ; i++){
+            gotoxy(40, 5 + i);
         for(int j = 0 ; j < 9 ; j++){
             if(grid[i][j] == 0)
                 cout<<".";
@@ -490,9 +491,23 @@ void Game(int attempt){
             cout << "Attempt left : " << --attempt;
         }
     }
+    if(blank == 0){
+        system("CLS");
+        printGrid2(game);
+        gotoxy(40,15);
+        delay(2);
+        cout << "\nCongratulations!!";
 
-    cout<<"\nSolution : \n";
-    printGrid2(game);
+    }else{
+        system("CLS");
+        gotoxy(40,2);
+        cout << "Solution : ";
+        delay(1);
+        printGrid2(game);
+        gotoxy(40,15);
+        delay(2);
+        cout << "Try next time.";
+    }
 }
 
 void StartGame(){
@@ -536,25 +551,25 @@ void Rules(){
       delay(1);
       gotoxy(7,6);
       cout<<"\t*Easy Level"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(7,7);
       cout<<"\t*Medium Level"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(7,8);
       cout<<"\t*Hard Level"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(10,10);
       cout<<":Easy level will have 7 life/chances for the wrong attempt"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(11,11);
       cout<<":Medium level will have 4 life/chances for the wrong attempt"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(12,12);
       cout<<":Hard Level will have 2 life/chances for the wrong attempt"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(13,13);
       cout<<":After exhausting all the life game will be ended"<<endl;
-      delay(1);
+      //delay(1);
       gotoxy(14,14);
       choice();
 }
@@ -577,7 +592,7 @@ void intro(){
     cout<<endl;
     delay(2);
     gotoxy(20,10);
-    cout<<"ALGORITHM LAB PROJECT";
+    cout<<"ALGORITHM AND PROBLEM SOLVING LAB PROJECT";
     cout<<endl;
     delay(2);
     gotoxy(30,12);
