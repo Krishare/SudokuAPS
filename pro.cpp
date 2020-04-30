@@ -515,9 +515,10 @@ void Rules(){
     gotoxy(1,5);
       cout<<"Games would be divided into three parts"<<endl;
       delay(1);
-      gotoxy(7,6);
+      gotoxy(2,6);
       cout<<"\t*Easy Level"<<endl;
       delay(1);
+      gotoxy(3,7);
       cout<<"\t*Medium Level"<<endl;
       delay(1);
       cout<<"\t*Hard Level"<<endl;
