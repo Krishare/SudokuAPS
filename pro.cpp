@@ -585,10 +585,12 @@ void intro(){
     cout<<endl;
     delay(2);
     gotoxy(20,10);
+    SetColor(145);
     cout<<"ALGORITHM LAB PROJECT";
     cout<<endl;
     delay(2);
     gotoxy(30,12);
+    SetColor(130);
     cout<<"::Enter N/n to play the game and Q/q to quit : ";
     char ch;
     cin>>ch;
