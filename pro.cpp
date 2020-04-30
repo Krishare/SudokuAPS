@@ -536,7 +536,7 @@ void Rules(){
       gotoxy(13,13);
       cout<<":After exhausting all the life game will be ended"<<endl;
       delay(1);
-      gotoxy(14,15);
+      gotoxy(14,14);
       choice();
 }
 void gotoxy(int x, int y)
@@ -557,9 +557,11 @@ void intro(){
     cout<<"\n\t\t%%%%%%%%%%%     ###########  %%%%%%%%%%%  ****     %%%   %%%%   ########### ";
     cout<<endl;
     delay(2);
-
     gotoxy(20,10);
-
+    cout<<"ALGORITHMIC LAB PROJECT";
+    cout<<endl;
+    delay(2);
+    gotoxy(30,12);
     cout<<"Enter N/n to play the game and Q/q to quit : ";
     char ch;
     cin>>ch;
@@ -591,6 +593,7 @@ void chooseLevel(){
 }
 
 void choice(){
+    gotoxy(15,14);
     cout<<"\n\nEnter N/n to continue the game, B/b to go back and Q/q to quit : ";
     char ch1;
     cin>>ch1;
