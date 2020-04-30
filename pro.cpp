@@ -577,6 +577,7 @@ void gotoxy(int x, int y)
 
 
 void intro(){
+    SetColor(120);
     cout<<"\n\t\t%%%%%%%%%       ##       ##  %%%%%%%%%%%  ****     %%%  %%%%    ##       ## ";
     cout<<"\n\t\t%%              ##       ##    %%     %%  ****     %%%  %%%     ##       ##   ";
     cout<<"\n\t\t%%%%%%%%%%      ##       ##    %%     %%  ****     %%% %%       ##       ##         ";
@@ -608,10 +609,11 @@ void chooseLevel(){
     char choice;
     label :
     system("cls");
+    SetColor(155);
     cout << "Choose the Level \n *E for easy \n *M for medium \n *H for hard  \n\nChoice : ";
     delay(2);
     cin >> choice;
-
+SetColor(136);
     if(choice != 'E' && choice != 'e' && choice != 'M' && choice != 'm' && choice != 'H' && choice != 'h'){
         system("cls");
         cout << "\nWrong Choice. Enter Again : ";
