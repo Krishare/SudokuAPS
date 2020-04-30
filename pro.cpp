@@ -440,7 +440,6 @@ void SetColor(int ForgC)
 
 void printGrid2(int grid[9][9]){
     for(int i = 0 ; i < 9 ; i++){
-        gotoxy(40, 5 + i);
         for(int j = 0 ; j < 9 ; j++){
             if(grid[i][j] == 0)
                 cout<<".";
@@ -492,23 +491,8 @@ void Game(int attempt){
         }
     }
 
-    if(blank == 0){
-        system("CLS");
-        printGrid2(game);
-        gotoxy(40,15);
-        delay(2);
-        cout << "\nCongratulations!!";
-
-    }else{
-        system("CLS");
-        gotoxy(40,2);
-        cout << "Solution : ";
-        delay(1);
-        printGrid2(game);
-        gotoxy(40,15);
-        delay(2);
-        cout << "Try next time.";
-    }
+    cout<<"\nSolution : \n";
+    printGrid2(game);
 }
 
 void StartGame(){
@@ -594,16 +578,16 @@ void gotoxy(int x, int y)
 
 void intro(){
     SetColor(149);
-    cout<<"\n\t\t%%%%%%%%%       ##       ##  %%%%%%%%%%%  ****     %%%  %%%%    ##       ## ";
-    cout<<"\n\t\t%%              ##       ##    %%     %%  ****     %%%  %%%     ##       ##   ";
-    cout<<"\n\t\t%%%%%%%%%%      ##       ##    %%     %%  ****     %%% %%       ##       ##         ";
-    cout<<"\n\t\t        %%%     ##       ##    %%     %%  ****     %%%   %%%    ##       ##      ";
-    cout<<"\n\t\t%%%%%%%%%%%     ###########  %%%%%%%%%%%  ****     %%%   %%%%   ########### ";
+    cout<<"\n\t\t%%%%%%%%%    ##       ##  %%%%%%%%%%%  *******   %%%  %%%%    ##       ## ";
+    cout<<"\n\t\t%%           ##       ##    %%     %%  *******   %%%  %%%     ##       ##   ";
+    cout<<"\n\t\t%%%%%%%%%%   ##       ##    %%     %%  *******   %%% %%       ##       ##         ";
+    cout<<"\n\t\t        %%   ##       ##    %%     %%  *******   %%%   %%%    ##       ##      ";
+    cout<<"\n\t\t%%%%%%%%%%   ###########  %%%%%%%%%%%  *******   %%%   %%%%   ########### ";
     cout<<endl;
     delay(2);
     gotoxy(20,10);
     SetColor(145);
-    cout<<"ALGORITHM AND PROBLEM SOLVING LAB PROJECT";
+    cout<<"ALGORITHM LAB PROJECT";
     cout<<endl;
     delay(2);
     gotoxy(30,12);
