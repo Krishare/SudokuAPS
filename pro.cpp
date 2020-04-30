@@ -530,12 +530,13 @@ void Rules(){
       gotoxy(11,11);
       cout<<":Medium level will have 4 life/chances for the wrong attempt"<<endl;
       delay(1);
-      gotoxy(12,13);
+      gotoxy(12,12);
       cout<<":Hard Level will have 2 life/chances for the wrong attempt"<<endl;
       delay(1);
       gotoxy(13,14);
       cout<<":After exhausting all the life game will be ended"<<endl;
       delay(1);
+      gotoxy(14,15);
       choice();
 }
 void gotoxy(int x, int y)
