@@ -40,6 +40,7 @@ void level(char ch);
 void printGrid2(int grid[N][N]);
 void delay(int t);
 void gotoxy(int, int);
+void SetColor(int ForgC);
 int genRandNum(int maxLimit){
     return rand()%maxLimit;
 }
@@ -419,6 +420,23 @@ void Sudoku::calculateDifficulty(){
 
     this->difficultyLevel = B*100 + emptyCells;
 }
+void SetColor(int ForgC)
+{
+     WORD wColor;
+     //This handle is needed to get the current background attribute
+
+     HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+     CONSOLE_SCREEN_BUFFER_INFO csbi;
+     //csbi is used for wAttributes word
+
+     if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
+     {
+          //To mask out all but the background attribute, and to add the color
+          wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
+          SetConsoleTextAttribute(hStdOut, wColor);
+     }
+     return;
+}
 
 void printGrid2(int grid[9][9]){
     for(int i = 0 ; i < 9 ; i++){
@@ -513,6 +531,7 @@ void delay(int number_of_seconds)
 void Rules(){
     delay(1);
     gotoxy(5,5);
+        SetColor(150);
       cout<<"Games would be divided into three parts"<<endl;
       delay(1);
       gotoxy(7,6);
