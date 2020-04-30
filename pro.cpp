@@ -512,19 +512,22 @@ void delay(int number_of_seconds)
 
 void Rules(){
     delay(1);
-    gotoxy(1,5);
+    gotoxy(5,5);
       cout<<"Games would be divided into three parts"<<endl;
       delay(1);
-      gotoxy(2,6);
+      gotoxy(7,6);
       cout<<"\t*Easy Level"<<endl;
       delay(1);
-      gotoxy(3,7);
+      gotoxy(7,7);
       cout<<"\t*Medium Level"<<endl;
       delay(1);
+      gotoxy(7,8);
       cout<<"\t*Hard Level"<<endl;
       delay(1);
+      gotoxy(10,10);
       cout<<":Easy level will have 7 life/chances for the wrong attempt"<<endl;
       delay(1);
+      gotoxy(11,10);
       cout<<":Medium level will have 4 life/chances for the wrong attempt"<<endl;
       delay(1);
       cout<<":Hard Level will have 2 life/chances for the wrong attempt"<<endl;
